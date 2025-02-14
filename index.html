@@ -1,20 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>skibidi pregunta importante 🗣️</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín? 🥺❤️</title>
+    <style>
+        :root {
+            --bg-color: #fdd0d0;
+            --container-bg: #fdeff0;
+            --border-color: #f9a1b5;
+            --btn-yes: #a1e2d8;
+            --btn-yes-hover: #7cd0c7;
+            --btn-no: #f28a8c;
+            --btn-no-hover: #ff6f6f;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: var(--bg-color);
+            font-family: "Segoe UI", sans-serif;
+            margin: 0;
+        }
+
+        .box {
+            background: var(--container-bg);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid var(--border-color);
+        }
+
+        h1 {
+            font-size: 18px;
+        }
+
+        .btn-container {
+            position: relative;
+            height: 50px;
+            margin-top: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: white;
+            border-radius: 10px;
+            position: absolute;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        #btnSi {
+            background: var(--btn-yes);
+            left: 24%;
+        }
+
+        #btnSi:hover {
+            background: var(--btn-yes-hover);
+        }
+
+        #btnNo {
+            background: var(--btn-no);
+            right: 24%;
+        }
+
+        #btnNo:hover {
+            background: var(--btn-no-hover);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .move-center {
+            left: 37% !important;
+        }
+
+        .btn-next {
+            background: #ff6f6f;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 16px;
+            display: inline-block;
+            margin-top: 10px;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .btn-next:hover {
+            background: #ff4d4d;
+        }
+    </style>
+</head>
+<body>
     <div class="box">
-      <h1 id="title">¿Quieres ser mi san Valentín? 🥺</h1>
-      <div class="btn-container" id="containerBtns">
-        <button class="btn-si" id="btnSi">Sí</button>
-        <button class="btn-no" id="btnNo">No</button>
-      </div>
-      <img src="" alt="gato" id="img" loading="lazy" />
+        <h1 id="title">¿Quieres ser mi San Valentín? 🥺❤️</h1>
+        <div class="btn-container" id="containerBtns">
+            <button class="btn" id="btnSi">Sí</button>
+            <button class="btn" id="btnNo">No</button>
+        </div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyj4qBd3EVHPvT4rdi3VEVFXFOmGlJEJphc3Ic9YGpgbrM_0OuCA0t3fI&s=10" 
+             alt="gato" id="img" width="250">
+        <div id="nextStep" class="hidden">
+            <a href="como.html" class="btn-next">Ver Flores 🌸</a>
+        </div>
     </div>
-    <script src="script.js"></script>
-  </body>
+
+    <script>
+        const mensajeFinal = "Te amoo ❤️❤️, ten unas flores: TLxTcwTwcxLL7iWSt6";
+
+        const imagenPrincipio = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyj4qBd3EVHPvT4rdi3VEVFXFOmGlJEJphc3Ic9YGpgbrM_0OuCA0t3fI&s=10";
+        const imagenFinal = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxKqNELzKoSO3VAtP0uvGqfYWwLSspi5gVXwSZEpmAaCwe0EPomcooR8U&s=10";
+        const imagenTriste = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv-zccr9Dcl3vXNDid8EbIzWdRXqCMrPUfnA&usqp=CAU";
+        const imagenFakee = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQP3OdMcGqEs3nAaTV57yOT9kaSEMZnjzf6iTKlVDXtkvstKhAIbWXb4le&s=10";
+
+        const btnSi = document.getElementById("btnSi");
+        const btnNo = document.getElementById("btnNo");
+        const title = document.getElementById("title");
+        const img = document.getElementById("img");
+        const btnContainer = document.getElementById("containerBtns");
+        const nextStep = document.getElementById("nextStep");
+
+        let contador = 0;
+
+        btnSi.addEventListener("click", () => {
+            title.textContent = mensajeFinal;
+            img.src = imagenFinal;
+            btnContainer.classList.add("hidden");
+            nextStep.classList.remove("hidden");
+        });
+
+        const moveButton = (btn) => {
+            const maxOffset = 100;
+            const rect = btn.getBoundingClientRect();
+            const maxX = window.innerWidth - rect.width;
+            const maxY = window.innerHeight - rect.height;
+
+            const newX = Math.min(Math.random() * maxOffset, maxX - rect.left);
+            const newY = Math.min(Math.random() * maxOffset, maxY - rect.top);
+
+            btn.style.transform = `translate(${newX}px, ${newY}px)`;
+        };
+
+        btnNo.addEventListener("mouseover", () => {
+            if (contador < 20) {
+                moveButton(btnNo);
+                contador++;
+            }
+        });
+
+        btnNo.addEventListener("click", () => {
+            if (contador < 12) {
+                moveButton(btnNo);
+                contador++;
+            } else {
+                contador = 0;
+                title.textContent = "Está bien 🥺💔";
+                img.src = imagenTriste;
+                btnContainer.classList.add("hidden");
+
+                setTimeout(() => {
+                    title.textContent = "Fakee";
+                    img.src = imagenFakee;
+
+                    setTimeout(() => {
+                        title.textContent = "¿Quieres ser mi San Valentín? 🥺❤️";
+                        img.src = imagenPrincipio;
+                        btnContainer.classList.remove("hidden");
+                        btnNo.classList.add("hidden");
+                        btnSi.classList.add("move-center");
+                    }, 2000);
+                }, 2000);
+            }
+        });
+    </script>
+</body>
 </html>
