@@ -3,11 +3,11 @@ const mensajeFinal = "Sabía que aceptarías ❤️";
 const imagenPrincipio =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyj4qBd3EVHPvT4rdi3VEVFXFOmGlJEJphc3Ic9YGpgbrM_0OuCA0t3fI&s=10";
 const imageneFinal =
-  "https://raw.githubusercontent.com/Ragosorio/cj-nv3.0/main/cjfin.webp";
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxKqNELzKoSO3VAtP0uvGqfYWwLSspi5gVXwSZEpmAaCwe0EPomcooR8U&s=10";
 const imagenTroste =
-  "https://raw.githubusercontent.com/Ragosorio/cj-nv3.0/main/troste.webp";
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv-zccr9Dcl3vXNDid8EbIzWdRXqCMrPUfnA&usqp=CAU";
 const imagenBromita =
-  "https://raw.githubusercontent.com/Ragosorio/cj-nv3.0/main/bromita.webp";
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQP3OdMcGqEs3nAaTV57yOT9kaSEMZnjzf6iTKlVDXtkvstKhAIbWXb4le&s=10";
 
 const $ = (e) => document.getElementById(e);
 
@@ -54,11 +54,11 @@ btnNo.addEventListener("click", () => {
     contador++;
   } else {
     contador = 0;
-    title.textContent = "Esta bien...";
+    title.textContent = "Esta bien 🥺💔";
     img.src = imagenTroste;
     btnContainer.classList.add("hidden");
     setTimeout(() => {
-      title.textContent = "Bromitaa";
+      title.textContent = "fakee";
       img.src = imagenBromita;
       setTimeout(() => {
         title.textContent = "¿Quieres ser mi san Valentín? 🥺";
