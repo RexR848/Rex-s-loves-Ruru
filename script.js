@@ -1,4 +1,4 @@
-const mensajeFinal = "Sabía que aceptarías ❤️";
+const mensajeFinal = "te amoo ❤️❤️, ten unas flores: TLxTcwTwcxLL7iWSt6";
 
 const imagenPrincipio =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyj4qBd3EVHPvT4rdi3VEVFXFOmGlJEJphc3Ic9YGpgbrM_0OuCA0t3fI&s=10";
